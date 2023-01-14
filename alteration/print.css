@@ -1,0 +1,27 @@
+#printArea {
+    border: 1px solid black;
+
+    width: 600px;
+    height: 900px;
+}
+
+.container {
+    padding: 1%;
+}
+
+h1.size {
+    font-size: 25px;
+}
+
+h1.size1 {
+    font-size: 40px;;
+}
+
+h2.details {
+    font-size: 18px;
+    line-height: 0px;
+}
+
+.bold {
+    font-weight: bold;
+}
