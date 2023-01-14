@@ -1,0 +1,738 @@
+CREATE DATABASE IF NOT EXISTS `4men` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `4men`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accessories`
+--
+
+CREATE TABLE `accessories` (
+  `brand` varchar(50) NOT NULL,
+  `accID` int(11) NOT NULL,
+  `weddingID` int(11) NOT NULL,
+  `items` text NOT NULL,
+  `status` text NOT NULL,
+  `notified` varchar(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accounts`
+--
+
+CREATE TABLE `accounts` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`id`, `username`, `password`) VALUES
+(1, '4men', '4men');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `aladin`
+--
+
+CREATE TABLE `aladin` (
+  `poID` text NOT NULL,
+  `orderNumber` text NOT NULL,
+  `customerID` text NOT NULL,
+  `customerName` text NOT NULL,
+  `items` text NOT NULL,
+  `status` text NOT NULL,
+  `notes` text NOT NULL,
+  `notified` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alteration`
+--
+
+CREATE TABLE `alteration` (
+  `alterationID` int(11) NOT NULL,
+  `customerID` int(11) NOT NULL,
+  `alteration` text NOT NULL,
+  `cost` text NOT NULL,
+  `totalCost` text NOT NULL,
+  `tailorDate` date NOT NULL,
+  `pickUpDate` date NOT NULL,
+  `notes` text NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `tailor` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alterationtype`
+--
+
+CREATE TABLE `alterationtype` (
+  `alterationTypeID` int(11) NOT NULL,
+  `aName` text NOT NULL,
+  `aPrice` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `alterationtype`
+--
+
+INSERT INTO `alterationtype` (`alterationTypeID`, `aName`, `aPrice`) VALUES
+(1, 'Shorten Sleeve - Jacket', 12),
+(2, 'Lengthen Sleeve - Jacket', 12),
+(3, 'Taper Sleeve - Jacket', 43),
+(4, 'Reduce Shoulder - Jacket', 54),
+(5, 'Take in Center Seam - Jacket', 45),
+(6, 'Let out Center Seam - Jacket', 12),
+(7, 'Take in Side Seam - Jacket', 14),
+(8, 'Let out Side Seam - Jacket', 16),
+(9, 'Take in 3-way Seam - Jacket', 16),
+(10, 'Let out 3-way Seam - Jacket', 15),
+(11, 'Shorten Jacket - Jacket', 8),
+(12, 'Add Peak Lapel - Jacket', 56),
+(13, 'Add Satin Lapel - Jacket', 50),
+(14, 'Add Shawl Lapel - Jacket', 0),
+(15, 'Ease Armhole - Jacket', 0),
+(16, 'Square Neck - Jacket', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assigntemp`
+--
+
+CREATE TABLE `assigntemp` (
+  `alterationID` int(11) NOT NULL,
+  `realtID` int(11) NOT NULL,
+  `customerName` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `aunoir`
+--
+
+CREATE TABLE `aunoir` (
+  `poID` text NOT NULL,
+  `orderNumber` text NOT NULL,
+  `customerID` text NOT NULL,
+  `customerName` text NOT NULL,
+  `items` text NOT NULL,
+  `status` text NOT NULL,
+  `notes` text NOT NULL,
+  `notified` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `azaro`
+--
+
+CREATE TABLE `azaro` (
+  `poID` text NOT NULL,
+  `orderNumber` text NOT NULL,
+  `customerID` text NOT NULL,
+  `customerName` text NOT NULL,
+  `items` text NOT NULL,
+  `status` text NOT NULL,
+  `notes` text NOT NULL,
+  `notified` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customerdetails`
+--
+
+CREATE TABLE `customerdetails` (
+  `customerID` int(11) NOT NULL,
+  `customerName` text NOT NULL,
+  `customerNumber` text NOT NULL,
+  `type` text NOT NULL,
+  `suit` text NOT NULL,
+  `suitColor` text NOT NULL,
+  `suitSize` text NOT NULL,
+  `suitFit` text NOT NULL,
+  `pantSize` text NOT NULL,
+  `shirtType` text NOT NULL,
+  `shirtSize` text NOT NULL,
+  `vest` text NOT NULL,
+  `salesPerson` text NOT NULL,
+  `alternationID` int(11) NOT NULL,
+  `status` text NOT NULL,
+  `date` text NOT NULL,
+  `notes` text NOT NULL,
+  `histroy` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customerdetails`
+--
+
+INSERT INTO `customerdetails` (`customerID`, `customerName`, `customerNumber`, `type`, `suit`, `suitColor`, `suitSize`, `suitFit`, `pantSize`, `shirtType`, `shirtSize`, `vest`, `salesPerson`, `alternationID`, `status`, `date`, `notes`, `histroy`) VALUES
+(5, 'ther', '902', 'Suit', 'Soul of London', '34', '3 Regular', 'Regular', '-4', 'None', '', '', 'Alex', 0, 'In-Transit- Redo Alteration', '2022/08/10', '', 'New,Hold,Stolen,Re-Ordered POSOL2 (SOL#2),Hold,Stolen,Re-Ordered POSOL3 (SOL#1)');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customerhistroy`
+--
+
+CREATE TABLE `customerhistroy` (
+  `id` int(11) NOT NULL,
+  `customerID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customerhistroy`
+--
+
+INSERT INTO `customerhistroy` (`id`, `customerID`) VALUES
+(32, 2),
+(33, 4),
+(34, 6),
+(35, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dateoffset`
+--
+
+CREATE TABLE `dateoffset` (
+  `offset` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dateoffset`
+--
+
+INSERT INTO `dateoffset` (`offset`) VALUES
+(4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `horst`
+--
+
+CREATE TABLE `horst` (
+  `poID` text NOT NULL,
+  `orderNumber` text NOT NULL,
+  `customerID` text NOT NULL,
+  `customerName` text NOT NULL,
+  `items` text NOT NULL,
+  `status` text NOT NULL,
+  `notes` text NOT NULL,
+  `notified` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `horst`
+--
+
+INSERT INTO `horst` (`poID`, `orderNumber`, `customerID`, `customerName`, `items`, `status`, `notes`, `notified`) VALUES
+('POHOR1', 'HOR#1', 'deleted', 'ibrahim', 'Black 38 Regular + 30 Waist ', 'Received', 'Walk-in Customer - deleted customer', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `knotz`
+--
+
+CREATE TABLE `knotz` (
+  `poID` text NOT NULL,
+  `orderNumber` text NOT NULL,
+  `customerID` text NOT NULL,
+  `customerName` text NOT NULL,
+  `items` text NOT NULL,
+  `status` text NOT NULL,
+  `notes` text NOT NULL,
+  `notified` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `matinique`
+--
+
+CREATE TABLE `matinique` (
+  `poID` text NOT NULL,
+  `orderNumber` text NOT NULL,
+  `customerID` text NOT NULL,
+  `customerName` text NOT NULL,
+  `items` text NOT NULL,
+  `status` text NOT NULL,
+  `notes` text NOT NULL,
+  `notified` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchaseorder`
+--
+
+CREATE TABLE `purchaseorder` (
+  `poID` varchar(255) NOT NULL,
+  `brand` text NOT NULL,
+  `status` text NOT NULL,
+  `datePlaced` date NOT NULL,
+  `dateCompleted` date NOT NULL,
+  `email` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `purchaseorder`
+--
+
+INSERT INTO `purchaseorder` (`poID`, `brand`, `status`, `datePlaced`, `dateCompleted`, `email`) VALUES
+('POALD1', 'Aladin', 'open', '0000-00-00', '0000-00-00', 0),
+('POAUN1', 'AuNoir', 'open', '0000-00-00', '0000-00-00', 0),
+('POAZO1', 'Azaro', 'open', '0000-00-00', '0000-00-00', 0),
+('POHOR1', 'Horst', 'Completed', '2022-08-23', '2022-08-23', 1),
+('POHOR2', 'Horst', 'open', '0000-00-00', '0000-00-00', 0),
+('POKTZ1', 'Knotz', 'open', '0000-00-00', '0000-00-00', 0),
+('POMAN1', 'Matinique', 'open', '0000-00-00', '0000-00-00', 0),
+('POREN1', 'Renoir', 'Completed', '2022-08-08', '2022-08-08', 0),
+('POREN2', 'Renoir', 'open', '0000-00-00', '0000-00-00', 0),
+('POSOL1', 'Soul of London', 'Completed', '2022-08-10', '2022-08-10', 0),
+('POSOL2', 'Soul of London', 'Completed', '2022-08-10', '2022-08-10', 0),
+('POSOL3', 'Soul of London', 'open', '0000-00-00', '0000-00-00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `realt`
+--
+
+CREATE TABLE `realt` (
+  `realtID` int(11) NOT NULL,
+  `customerID` int(11) NOT NULL,
+  `realt` text NOT NULL,
+  `cost` text NOT NULL,
+  `totalCost` text NOT NULL,
+  `tailorDate` date NOT NULL,
+  `pickUpDate` date NOT NULL,
+  `notes` text NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `tailor` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `receivetemp`
+--
+
+CREATE TABLE `receivetemp` (
+  `alterationID` int(11) NOT NULL,
+  `realtID` int(11) NOT NULL,
+  `customerName` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `renoir`
+--
+
+CREATE TABLE `renoir` (
+  `poID` text NOT NULL,
+  `orderNumber` text NOT NULL,
+  `customerID` text NOT NULL,
+  `customerName` text NOT NULL,
+  `items` text NOT NULL,
+  `status` text NOT NULL,
+  `notes` text NOT NULL,
+  `notified` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `renoir`
+--
+
+INSERT INTO `renoir` (`poID`, `orderNumber`, `customerID`, `customerName`, `items`, `status`, `notes`, `notified`) VALUES
+('POREN1', 'REN#1', 'deleted', 'Malik', 'Black 44 Regular Regular + 37 Waist  +  Vest ', 'Received', 'Walk-in Customer (Reordered) - deleted customer', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `retempalt`
+--
+
+CREATE TABLE `retempalt` (
+  `cusID` int(11) NOT NULL,
+  `alterationTypeID` int(11) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `salesperson`
+--
+
+CREATE TABLE `salesperson` (
+  `salesID` int(10) NOT NULL,
+  `sName` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `salesperson`
+--
+
+INSERT INTO `salesperson` (`salesID`, `sName`) VALUES
+(1, 'Alex'),
+(3, 'Mike'),
+(7, 'Justin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `section`
+--
+
+CREATE TABLE `section` (
+  `sectionID` text NOT NULL,
+  `sectionName` text NOT NULL,
+  `customerId` varchar(11) NOT NULL,
+  `customerName` text NOT NULL,
+  `items` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sectionattr`
+--
+
+CREATE TABLE `sectionattr` (
+  `sectionID` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `max` int(11) NOT NULL,
+  `amount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sectionattr`
+--
+
+INSERT INTO `sectionattr` (`sectionID`, `name`, `max`, `amount`) VALUES
+(0, 'Hold', 50, 0),
+(1, 'Section 1', 30, 0),
+(2, 'Section 2', 30, 0),
+(3, 'Section 3', 30, 0),
+(4, 'Section 4', 30, 0),
+(5, 'Section 5', 30, 0),
+(100, 'Accessories', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shirts`
+--
+
+CREATE TABLE `shirts` (
+  `shirtsBrand` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `shirts`
+--
+
+INSERT INTO `shirts` (`shirtsBrand`) VALUES
+('None'),
+('Jack Danni Textured'),
+('Jack Danni Plain / Soul of London'),
+('Horst French Cuff');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `soul of london`
+--
+
+CREATE TABLE `soul of london` (
+  `poID` text NOT NULL,
+  `orderNumber` text NOT NULL,
+  `customerID` text NOT NULL,
+  `customerName` text NOT NULL,
+  `items` text NOT NULL,
+  `status` text NOT NULL,
+  `notes` text NOT NULL,
+  `notified` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `soul of london`
+--
+
+INSERT INTO `soul of london` (`poID`, `orderNumber`, `customerID`, `customerName`, `items`, `status`, `notes`, `notified`) VALUES
+('POSOL1', 'SOL#1', 'deleted', 'this is a test', 'Blakc 44 Regular + 37 Waist ', 'Out of Stock', 'Walk-in Customer - deleted customer', 0),
+('POSOL2', 'SOL#1', 'deleted', 'this is a test', 'Blakc 44 Regular + 37 Waist ', 'Received', 'Walk-in Customer - deleted customer', 0),
+('POSOL2', 'SOL#2', '5', 'ther', '34 3 Regular + -4 Waist ', 'Received', 'Walk-in Customer (Reordered)', 0),
+('POSOL3', 'SOL#1', '5', 'ther', '34 3 Regular + -4 Waist ', 'New', 'Walk-in Customer (Reordered)', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `supplierID` int(11) NOT NULL,
+  `supplier` text NOT NULL,
+  `prefix` text NOT NULL,
+  `email` text NOT NULL,
+  `accessories` varchar(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`supplierID`, `supplier`, `prefix`, `email`, `accessories`) VALUES
+(1, 'Soul of London', 'SOL', 'abdulmalikmohamed813@gmail.com', ''),
+(2, 'Renoir', 'REN', 'abdulmalikmohamed813@gmail.com', ''),
+(3, 'Horst', 'HOR', 'abdulmalikmohamed813@gmail.com', ''),
+(4, 'Aladin', 'ALD', 'abdulmalikmohamed813@gmail.com', 'Y'),
+(5, 'Azaro', 'AZO', 'abdulmalikmohamed813@gmail.com', ''),
+(6, 'Matinique', 'MAN', 'abdulmalikmohamed813@gmail.com', ''),
+(7, 'Knotz', 'KTZ', 'abdulmalikmohamed813@gmail.com', 'Y'),
+(8, 'AuNoir', 'AUN', 'abdulmalikmohamed813@gmail.com', 'Y');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tailor`
+--
+
+CREATE TABLE `tailor` (
+  `tailorID` int(11) NOT NULL,
+  `tailor` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tailor`
+--
+
+INSERT INTO `tailor` (`tailorID`, `tailor`) VALUES
+(0, 'Syed'),
+(1, 'Muhammad');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tempalt`
+--
+
+CREATE TABLE `tempalt` (
+  `cusID` int(11) NOT NULL,
+  `alterationTypeID` int(11) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tempalt`
+--
+
+INSERT INTO `tempalt` (`cusID`, `alterationTypeID`, `time`) VALUES
+(5, 8, '2022-09-14 18:22:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `type`
+--
+
+CREATE TABLE `type` (
+  `type` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `type`
+--
+
+INSERT INTO `type` (`type`) VALUES
+('None'),
+('Suit'),
+('Blazzer'),
+('Pant'),
+('Shirt'),
+('Vest');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `weddingform`
+--
+
+CREATE TABLE `weddingform` (
+  `weddingID` int(11) NOT NULL,
+  `groomName` text NOT NULL,
+  `weddingDate` text NOT NULL,
+  `weddingMonth` text NOT NULL,
+  `email` text NOT NULL,
+  `Pnumber` text NOT NULL,
+  `groomSuit` text NOT NULL,
+  `groomStyle` text NOT NULL,
+  `groomsmenSuit` text NOT NULL,
+  `groomsmanStyle` text NOT NULL,
+  `fatherOfTheGroom` text NOT NULL,
+  `fatherOfTheGroomStyle` text NOT NULL,
+  `fatherOfTheBrideSuit` text NOT NULL,
+  `fatherOfTheBrideStyle` text NOT NULL,
+  `salesPerson` text NOT NULL,
+  `notes` text NOT NULL,
+  `section` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `weddingpartyattr`
+--
+
+CREATE TABLE `weddingpartyattr` (
+  `weddingID` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `customerID` int(11) NOT NULL,
+  `individual` text NOT NULL,
+  `name` text NOT NULL,
+  `number` text NOT NULL,
+  `tie` text NOT NULL,
+  `pocketSquare` text NOT NULL,
+  `notes` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `accessories`
+--
+ALTER TABLE `accessories`
+  ADD PRIMARY KEY (`accID`);
+
+--
+-- Indexes for table `accounts`
+--
+ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `alteration`
+--
+ALTER TABLE `alteration`
+  ADD PRIMARY KEY (`alterationID`);
+
+--
+-- Indexes for table `alterationtype`
+--
+ALTER TABLE `alterationtype`
+  ADD PRIMARY KEY (`alterationTypeID`);
+
+--
+-- Indexes for table `customerdetails`
+--
+ALTER TABLE `customerdetails`
+  ADD PRIMARY KEY (`customerID`);
+
+--
+-- Indexes for table `customerhistroy`
+--
+ALTER TABLE `customerhistroy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `purchaseorder`
+--
+ALTER TABLE `purchaseorder`
+  ADD PRIMARY KEY (`poID`);
+
+--
+-- Indexes for table `realt`
+--
+ALTER TABLE `realt`
+  ADD PRIMARY KEY (`realtID`);
+
+--
+-- Indexes for table `salesperson`
+--
+ALTER TABLE `salesperson`
+  ADD PRIMARY KEY (`salesID`);
+
+--
+-- Indexes for table `supplier`
+--
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`supplierID`);
+
+--
+-- Indexes for table `tailor`
+--
+ALTER TABLE `tailor`
+  ADD PRIMARY KEY (`tailorID`);
+
+--
+-- Indexes for table `weddingform`
+--
+ALTER TABLE `weddingform`
+  ADD PRIMARY KEY (`weddingID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `alterationtype`
+--
+ALTER TABLE `alterationtype`
+  MODIFY `alterationTypeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `customerhistroy`
+--
+ALTER TABLE `customerhistroy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `salesperson`
+--
+ALTER TABLE `salesperson`
+  MODIFY `salesID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `supplier`
+--
+ALTER TABLE `supplier`
+  MODIFY `supplierID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tailor`
+--
+ALTER TABLE `tailor`
+  MODIFY `tailorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+COMMIT;
