@@ -1,0 +1,200 @@
+@media only screen and (max-width: 600px) {
+    .container {
+        font-family: serif;
+        padding: 15%;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 601px ) and (max-width: 800px) {
+    .container {
+        font-family: serif;
+        padding: 12%;
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 801px ) and (max-width: 1000px) {
+    .container {
+        font-family: serif;
+        padding: 8%;
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 1001px ) and (max-width: 6000px) {
+    .container {
+        font-family: serif;
+        padding: 5%;
+        width: 90%;
+        padding-top: 8%;
+
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .navbar-header {
+        float: none;
+    }
+
+    .navbar-left, .navbar-right {
+        float: none !important;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+
+    .navbar-nav {
+        float: none !important;
+        margin-top: 7.5px;
+    }
+
+    .navbar-nav > li {
+        float: none;
+    }
+
+    .navbar-nav > li > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .collapse.in {
+        display: block !important;
+    }
+}
+
+.weddingPartyText {
+    font-size: 50px;
+}
+
+.right {
+    color: #333333;
+    line-height: 1;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    text-align: right;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.details {
+    font-size: 20px;
+}
+
+
+.navbar-custom .navbar-nav li a {
+    color: black;
+    font-size: 15px;
+}
+
+.navbar-custom .navbar-nav li a:hover {
+    background: #2e6da4;
+    color: white;
+}
+
+
+/*Make the navbar a different shade of dark, make the links lighter,
+and change the background color on hover*/
+.navbar-custom {
+
+    background-color: black;
+    margin-bottom: 0px;
+    border: 1px solid black;
+
+    background-image: none;
+
+}
+
+.navbar-custom .navbar-nav li a {
+    color: white;
+    font-size: 15px;
+}
+
+.navbar-custom .navbar-nav li a:hover {
+    background: red;
+    color: white;
+}
+
+/*Dropdown menu has its own classes, so
+I’m also going to change the background color on these
+and add a little padding*/
+.dropdown-menu {
+    background-color: black;
+    border-radius: 0;
+    border: 0;
+}
+
+.navbar-custom .navbar-nav .dropdown-menu li a {
+    color: white;
+    padding: 10px;
+}
+
+.navbar-custom .navbar-nav .dropdown-menu li a:hover {
+    background: red;
+    color: white;
+}
+
+
+/*Brand Logo*/
+.brandLogo {
+    width: 275px;
+    /*border: 1px solid black;*/
+    position: absolute;
+    top: 10px;
+
+}
+
+
+/*Adjust brand section*/
+
+.navbar-brand {
+
+    margin-bottom: 4px;
+    margin-right: 5px;
+
+}
+
+body {
+    background: white;
+}
+
+.btn-primary {
+    background: grey;
+}
+
+.btn-success {
+    background: seagreen;
+}
+
+.expandChildTable:before {
+    /*content: "+";*/
+    display: block;
+    cursor: pointer;
+}
+
+.expandChildTable.selected:before {
+    /*content: "-";*/
+}
+
+.childTableRow {
+    display: none;
+}
+
+.childTableRow table {
+    border: 2px solid #555;
+}
